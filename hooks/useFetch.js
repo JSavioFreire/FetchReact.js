@@ -72,15 +72,12 @@ export const useFetch = (url) => {
     fetchData();
   }, [url, callFetch]);
 
-  // 5 - refatorando post
   useEffect(() => {
     const httpRequest = async () => {
       if (method === "POST") {
-        // 7 - loading no post
-        // mudar throttling no network p 3g
+
         setLoading(true);
 
-        // 5 - refatorando post
         let fetchOptions = [url, config];
 
         const res = await fetch(...fetchOptions);
@@ -88,7 +85,6 @@ export const useFetch = (url) => {
         const json = await res.json();
 
         setCallFetch(json);
-        // 9 - desafio
       } else if (method === "DELETE") {
         const deleteUrl = `${url}/${itemId}`;
 
