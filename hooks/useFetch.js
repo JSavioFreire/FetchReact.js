@@ -17,7 +17,6 @@ export const useFetch = (url) => {
   //delete, itemId identifica qual sera excluido
   const [itemId, setItemId] = useState(null);
 
-
   //post - delete
   const httpConfig = (data, method) => {
     if (method === "POST") {
@@ -61,7 +60,6 @@ export const useFetch = (url) => {
 
         setError(null);
       } catch (error) {
-        console.log(error.message);
 
         setError("Houve um erro ao carregar os dados!");        //mensagem de erro
       }
@@ -98,8 +96,6 @@ export const useFetch = (url) => {
 
     httpRequest();
   }, [config]);
-
-  console.log(config);
 
   return { data, httpConfig, loading, error };
 };
